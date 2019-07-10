@@ -1,8 +1,14 @@
 package ejercicioPeliculaModelo;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component(value="peli")
+@Scope(value="prototype")
 public class Pelicula {
 	
 	private static AtomicInteger secuencia;
@@ -42,7 +48,7 @@ public class Pelicula {
 	
 	public Pelicula(Integer identificador, String titulo, String director, String sinopsis, List<String> categories) {
 		super();
-		this.identificador = secuencia.incrementAndGet();
+		this.identificador = identificador;
 		this.titulo = titulo;
 		this.director = director;
 		this.sinopsis = sinopsis;
@@ -78,6 +84,12 @@ public class Pelicula {
 	}
 	public void setCategories(List<String> categories) {
 		Categories = categories;
+	}
+
+	@Override
+	public String toString() {
+		return "Pelicula [identificador=" + identificador + ", titulo=" + titulo + ", director=" + director
+				+ ", sinopsis=" + sinopsis + ", Categories=" + Categories + "]";
 	}
 	
 	

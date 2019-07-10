@@ -2,11 +2,17 @@ package ejercicioPeliculaNegocio;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import ejercicioPeliculaDAO.PeliculaDAOImp;
 import ejercicioPeliculaModelo.Pelicula;
 
+@Service
 public class GestorPeliculas {
-	private PeliculaDAOImp peliculaDAO;
+	
+	@Autowired
+	private PeliculaDAOImp peliculaDAO = new PeliculaDAOImp();
 	
 	public void altaPeliculas(List<Pelicula> lista) {
 		for(int i = 0; i < lista.size(); i++) {

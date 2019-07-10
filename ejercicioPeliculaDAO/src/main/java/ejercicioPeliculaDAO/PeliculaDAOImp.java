@@ -1,12 +1,20 @@
 package ejercicioPeliculaDAO;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
 import ejercicioPeliculaModelo.Pelicula;
 
+@Repository
 public class PeliculaDAOImp implements IPeliculaDAO {
 	
-	private List<Pelicula> miListaDePeliculas;
+	@Autowired
+	@Qualifier("peliculas")
+	private List<Pelicula> miListaDePeliculas = new ArrayList<Pelicula>();
 	
 	public void create(Pelicula pelicula) {
 		if(!miListaDePeliculas.contains(pelicula)) {
