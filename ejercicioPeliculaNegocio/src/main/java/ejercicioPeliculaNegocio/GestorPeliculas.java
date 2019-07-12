@@ -12,7 +12,7 @@ import ejercicioPeliculaModelo.Pelicula;
 public class GestorPeliculas {
 	
 	@Autowired
-	private PeliculaDAOImp peliculaDAO = new PeliculaDAOImp();
+	private PeliculaDAOImp peliculaDAO;
 	
 	public void altaPeliculas(List<Pelicula> lista) {
 		for(int i = 0; i < lista.size(); i++) {

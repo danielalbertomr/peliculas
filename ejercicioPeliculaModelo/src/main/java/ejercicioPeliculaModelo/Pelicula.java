@@ -7,12 +7,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component(value="peli")
-@Scope(value="prototype")
+
 public class Pelicula {
 	
 	private static AtomicInteger secuencia;
 	private Integer identificador;
+	private String titulo;
+	private String director;
+	private String sinopsis;
+	private List<String> Categories;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -37,23 +41,24 @@ public class Pelicula {
 			return false;
 		return true;
 	}
-	private String titulo;
-	private String director;
-	private String sinopsis;
-	private List<String> Categories;
 	
 	static {
 		secuencia = new AtomicInteger();
 	}
 	
-	public Pelicula(Integer identificador, String titulo, String director, String sinopsis, List<String> categories) {
+	
+	public Pelicula() {
 		super();
-		this.identificador = identificador;
-		this.titulo = titulo;
-		this.director = director;
-		this.sinopsis = sinopsis;
-		Categories = categories;
 	}
+
+//	public Pelicula(Integer identificador, String titulo, String director, String sinopsis, List<String> categories) {
+//		super();
+//		this.identificador = identificador;
+//		this.titulo = titulo;
+//		this.director = director;
+//		this.sinopsis = sinopsis;
+//		Categories = categories;
+//	}
 	
 	public Integer getIdentificador() {
 		return identificador;

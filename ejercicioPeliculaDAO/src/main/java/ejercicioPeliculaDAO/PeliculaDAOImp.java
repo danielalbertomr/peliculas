@@ -40,7 +40,7 @@ public class PeliculaDAOImp implements IPeliculaDAO {
 	}
 
 	public Pelicula readById(Integer id) {
-		Pelicula peliculaABuscar = new Pelicula(id, "", "", "", null);
+		Pelicula peliculaABuscar = new Pelicula();
 		if(miListaDePeliculas.contains(peliculaABuscar)) {
 			int indexOf = miListaDePeliculas.indexOf(peliculaABuscar);
 			return miListaDePeliculas.get(indexOf);
